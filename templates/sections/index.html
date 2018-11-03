@@ -1,0 +1,76 @@
+{% extends "basetemp/main.html" %}
+
+{% block title %}Sign-up{% endblock title %}
+
+
+{% block body %}
+<div>
+    <h2>Sign Up</h2>
+
+    <form action="" id="SignUp" method="POST">
+
+            <table>
+        <tr>
+                <td>
+                    <b><label for="userName">User Name</label></b>
+                </td>
+                <td>
+                    <input type="text" name="username" id="userName" value={{username}}> 
+                    {% if validate['username'] is defined %}
+                    <span>Username is incorrect</span>
+                    {% endif %}
+                </td>
+        </tr>
+
+        <tr>
+                    <td>
+                        <b><label for="password">Password</label></b>
+                    </td>
+                    <td>
+                        <input type="password" name="password" id="password"> 
+                        {% if  validate['password'] is defined %}
+                        
+                        <span>Password is not valid</span>
+
+                        {% endif %}
+                    </td>
+                    
+        </tr>
+
+        <tr>
+                <td>
+                        <b><label for="password_verify">Verify Password</label></b>
+                    </td>
+                    <td>
+                        <input type="password" name="password_verify" id="password_verify"> 
+                        {% if  validate['password_verify'] is defined %}
+                        <span>Your password don't match</span>
+                        {% endif %}
+                    </td>
+        </tr>
+
+        <tr>
+                <td>
+                        <b><label for="email">Email <small>(optional)</small></label></b>
+                    </td>
+                    <td>
+                        <input type="text" name="email" id="email" value={{email}}> 
+                        {% if  validate['email'] is defined %}
+                        <span>Your Email Format is not valid</span>
+                        {% endif %}
+                    </td>
+        </tr>
+    </table>       
+    <input type="submit"> 
+        
+
+
+
+
+        
+    </form>
+
+
+
+</div>
+{% endblock body %}
